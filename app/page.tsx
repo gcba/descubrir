@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import Hero from '@/components/Hero';
+// import Hero from '@/components/Hero';
+import Hero from '@/components/hero';
 import Multimedia from '@/components/Multimedia';
 import Features from '@/components/Features';
 import Stats from '@/components/Stats';
@@ -14,21 +15,21 @@ import CasinoSection from '@/components/CasinoSection';
 import ObeliscoSection from '@/components/ObeliscoSection';
 
 export default function Home() {
-  return (
-    <Box as="main" minH="100vh">
-      <Hero />
-      <Multimedia />
-      <Features />
-      <Stats />
-      <Futuristic />
-      <Testimonials />
-      <CyberpunkCanvas />
-      <Earth3DSection />
-      <MiniGame />
-      <Contact />
-      <GalaxyStory />
-      <CasinoSection />
-      <ObeliscoSection />
-    </Box>
-  );
+	return (
+		<Box as="main" minH="100vh">
+			<Hero />
+			<Multimedia />
+			<Features />
+			<Stats />
+			<Futuristic />
+			<Testimonials />
+			<CyberpunkCanvas />
+			<Earth3DSection />
+			<MiniGame />
+			<Contact />
+			<GalaxyStory />
+			<CasinoSection />
+			<ObeliscoSection />
+		</Box>
+	);
 }
