@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from 'gsap';
-import { Box, Image, Flex, Heading, Button, Text, Input, InputGroup } from "@chakra-ui/react";
+import { Box, Image, Flex, Heading, Button, Input, InputGroup } from "@chakra-ui/react";
 import { LuSearch } from "react-icons/lu"
 import bgImage from "@/assets/images/hero/bg.png";
 import titleImage from "@/assets/images/hero/title.png";
@@ -46,8 +46,8 @@ export default function Hero() {
 						<Heading size="lg">Agenda</Heading>
 						<Heading size="lg">Mapa</Heading>
 						<Heading size="lg">Pascuas en BA</Heading>
-						<Button colorPalette="orange" rounded="3xl" margin="0 24px 0 90px">
-							<Text fontWeight="bold" color="white">Ingresar</Text>
+						<Button colorPalette="orange" rounded="3xl" margin="0 24px 0 90px" fontWeight="bold" color="white">
+							Ingresar
 						</Button>
 					</Flex>
 

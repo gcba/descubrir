@@ -1,7 +1,8 @@
 import { Box } from "@chakra-ui/react";
 // import Hero from '@/components/Hero';
 import Hero from '@/components/hero';
-import Multimedia from '@/components/Multimedia';
+// import Multimedia from '@/components/Multimedia';
+import Summer from '@/components/summer';
 import Features from '@/components/Features';
 import Stats from '@/components/Stats';
 import Futuristic from '@/components/Futuristic';
@@ -18,7 +19,8 @@ export default function Home() {
 	return (
 		<Box as="main" minH="100vh">
 			<Hero />
-			<Multimedia />
+			<Summer />
+			{/* <Multimedia /> */}
 			<Features />
 			<Stats />
 			<Futuristic />
