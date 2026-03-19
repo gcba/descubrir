@@ -1,100 +1,97 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import { Box, Container, Grid, Flex, Heading, Text } from '@chakra-ui/react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {
+  Box,
+  Grid,
+  Image,
+  Text,
+  Stack,
+  Link,
+  Heading,
+  Container,
+} from "@chakra-ui/react";
 
-gsap.registerPlugin(ScrollTrigger);
-
-// Your stats data
-const stats = [
-  { label: 'Users', value: 12345 },
-  { label: 'Projects', value: 324 },
-  { label: 'Downloads', value: 9876 },
-  { label: 'Speed', value: 99 }, // could be %
-];
-
-export default function Stats() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const numberRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      numberRefs.current.forEach((el, index) => {
-        if (el) {
-          const target = stats[index].value;
-
-          // Count up animation
-          gsap.to({ val: 0 }, {
-            val: target,
-            duration: 1.5,
-            ease: 'power1.out',
-            onUpdate: function() {
-                if (el) el.textContent = Math.floor(this.targets()[0].val).toLocaleString();
-            },
-          });
-
-          // Bounce effect
-          gsap.fromTo(
-            el,
-            { scale: 0.8, opacity: 0 },
-            {
-              scale: 1,
-              opacity: 1,
-              duration: 1,
-              ease: 'back.out(1.7)',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 85%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          );
-        }
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+export default function EditorialChakra() {
+  const editoriales = [
+    { img: "/imgs/event1.jpg" },
+    { img: "/imgs/event5.jpg" },
+    { img: "/imgs/event4.png" },
+    { img: "/imgs/event1.jpg" },
+  ];
 
   return (
-    <Box
-      as="section"
-      ref={sectionRef}
-      py={20}
-      bg="gray.50"
-      _dark={{ bg: 'gray.900' }}
-      id="stats"
-    >
+    <Box mb={10} className="card-container-editorial">
       <Container maxW="container.lg">
+        {/* TÍTULO */}
         <Heading
           as="h2"
-          fontSize={{ base: '4xl', md: '5xl' }}
-          fontWeight="bold"
-          textAlign="center"
-          color="gray.900"
-          _dark={{ color: 'white' }}
-          mb={16}
+          size="lg"
+          mb={6}
+          color="white"
+          fontFamily="'Nunito', sans-serif"
+          fontSize="48px"
         >
-          Our Amazing Stats
+          Editorial ❤
         </Heading>
+        <Box mt={2} mb={4} height="2px" bg="white" width="100%" />
 
-        <Grid templateColumns={{ base: '1fr 1fr', md: 'repeat(4, 1fr)' }} gap={8} textAlign="center">
-          {stats.map((stat, index) => (
-            <Flex key={index} direction="column" align="center">
-              <Box
-                ref={(el) => (numberRefs.current[index] = el)}
-                fontSize={{ base: '3xl', md: '4xl' }}
-                fontWeight="bold"
-                color="blue.500"
+        {/* GRID */}
+        <Grid
+          templateColumns={{
+            base: "repeat(2, 1fr)",
+            md: "repeat(4, 1fr)",
+          }}
+          gap={6}
+        >
+          {editoriales.map((item, index) => (
+            <Box key={index} display={"flex"} justifyContent={"center"}>
+              <Stack
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                flexDirection={"column-reverse"}
+                w="264px"
+                h="303px"
+                maxW="264px"
+                maxH="303px"
+                _hover={{
+                  backgroundColor: "white",
+                }}
               >
-                0
-              </Box>
-              <Text fontSize="lg" fontWeight="medium" color="gray.700" _dark={{ color: 'gray.300' }}>
-                {stat.label}
-              </Text>
-            </Flex>
+                {/* IMAGEN */}
+                <Image
+                  src={item.img}
+                  w="248px"
+                  h="200px"
+                  maxW="248px"
+                  maxH="200px"
+                  objectFit="cover"
+                  borderRadius="16px"
+                />
+
+                {/* TEXTO */}
+                <Box
+                  display={"flex"}
+                  justifyContent={"flex-start"}
+                  alignItems={"flex-start"}
+                  flexDirection={"column"}
+                >
+                  <Text as="h3" fontSize="md" fontWeight="bold" mt={2}>
+                    <Link
+                      href="#"
+                      color="white"
+                      _hover={{ textDecoration: "underline" }}
+                    >
+                      Editorial
+                    </Link>
+                  </Text>
+
+                  <Text fontSize="sm" color="gray.300">
+                    Descripción de la tarjeta
+                  </Text>
+                </Box>
+              </Stack>
+            </Box>
           ))}
         </Grid>
       </Container>
