@@ -1,4 +1,5 @@
 "use client";
+import * as Icons from "lucide-react";
 
 import { useEffect, useRef } from "react";
 import {
@@ -13,7 +14,18 @@ import {
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Cpu, Grid, Link, Monitor, Play, Server } from "lucide-react";
+import { CookingPot, Music, Bike, Theater, Utensils, } from "lucide-react";
 
+const getIcon = (iconName: string) => {
+  switch (iconName) {
+    case "CookingPot":
+      return <CookingPot color="white" size={40} />;
+    case "Bike":
+      return <Bike color="white" size={40} />;
+    default:
+      return <Play color="white" size={40} />;
+  }
+};
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Futuristic() {
@@ -89,43 +101,62 @@ export default function Futuristic() {
           >
             {[
               {
-                title: "Festival de la Gastronomía ",
-                img: "/imgs/event1.jpg",
+                title: "Gastronomía",
+                img: "/explorar/Arte-y-cultura.svg",
+                icon: "CookingPot",
               },
-              { title: "Evento 2 ", img: "/imgs/event2.jpg" },
-              { title: "Evento 3 ", img: "/imgs/event3.jpg" },
-              { title: "Evento 4 ", img: "/imgs/event3.jpg" },
-              { title: "Evento 5 ", img: "/imgs/event3.jpg" },
-              { title: "Evento 6 ", img: "/imgs/event3.jpg" },
+              {
+                title: "Arte y cultura",
+                img: "/explorar/Deportes.svg",
+                icon: "Bike",
+              },
+              {
+                title: "Deporte",
+                img: "/explorar/Descubre-la-ciudad.svg",
+                icon: "Bike",
+              },
+              {
+                title: "Ferias y Exposiciones",
+                img: "/explorar/Arte-y-Entretenimiento.svg",
+                icon: "Theater",
+              },
+              {
+                title: "Entretenimiento",
+                img: "/explorar/Ferias-y-expo.svg",
+                icon: "Utensils",
+              },
+              {
+                title: "Descubrir la Ciudad",
+                img: "/explorar/Gastronomía.svg",
+                icon: "CookingPot",
+              },
             ].map((evento, index) => (
-              <Box
-                key={index}
-                w="348px"
-                maxH="200px"
-                h="200px"
-                // maxH="524px"
-                flexShrink={0}
-              >
+              <Box key={index} w="348px" maxH="200px" h="200px" flexShrink={0}>
                 <Stack w="100%" h="100%" borderRadius="16px" overflow="hidden">
-                  <Image
-                    src={evento.img}
+                  <Box
                     w="100%"
-                    h="327px"
-                    minH="327px"
-                    objectFit="cover"
-                    opacity={"0.45"}
-                  />
-
-                  <Text
-                    as="span"
-                    color="white"
-                    p={"4px 8px"}
-                    borderRadius={"16px"}
-                    border={"1px solid white"}
-                    width={"fit-content"}
+                    h="100%"
+                    backgroundImage={`url(${evento.img})`}
+                    backgroundSize="cover"
+                    backgroundPosition="center"
+                    backgroundRepeat="no-repeat"
+                    position="relative"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    flexDirection="column"
                   >
-                    San Telmo
-                  </Text>
+                    {getIcon(evento.icon)}
+                    <Text
+                      as="span"
+                      color="white"
+                      textAlign="center"
+                      fontWeight="bold"
+                      mt={2}
+                    >
+                      {evento.title}
+                    </Text>
+                  </Box>
                 </Stack>
               </Box>
             ))}
