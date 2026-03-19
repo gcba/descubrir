@@ -14,24 +14,26 @@ import Contact from "@/components/Contact";
 import GalaxyStory from "@/components/GalaxyStory";
 import CasinoSection from "@/components/CasinoSection";
 import ObeliscoSection from "@/components/ObeliscoSection";
+import Highlighted from '@/components/highlighted';
 
 export default function Home() {
-  return (
-    <Box as="main" minH="100vh">
-      <Hero />
-      <Summer />
-      {/* <Multimedia /> */}
-      <TarjetasHoySemanaFinde />
-      <Explorar />
-      <TarjetasHoySemanaFindeBadge />
-      <Testimonials />
-      <CyberpunkCanvas />
-      <Earth3DSection />
-      <MiniGame />
-      <Contact />
-      <GalaxyStory />
-      <CasinoSection />
-      <ObeliscoSection />
-    </Box>
-  );
+	return (
+		<Box as="main" minH="100vh">
+			<Hero />
+			<Summer />
+			{/* <Multimedia /> */}
+			<TarjetasHoySemanaFinde />
+			<Highlighted />
+			<Explorar />
+			<TarjetasHoySemanaFindeBadge />
+			<Testimonials />
+			<CyberpunkCanvas />
+			<Earth3DSection />
+			<MiniGame />
+			<Contact />
+			<GalaxyStory />
+			<CasinoSection />
+			<ObeliscoSection />
+		</Box>
+	);
 }
