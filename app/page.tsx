@@ -6,14 +6,6 @@ import Summer from "@/components/summer";
 import TarjetasHoySemanaFinde from "@/components/TarjetasHoySemanaFinde";
 import TarjetasHoySemanaFindeBadge from "@/components/TarjetasHoySemanaFindeBadge";
 import Explorar from "@/components/Explorar";
-import Testimonials from "@/components/Testimonials";
-import CyberpunkCanvas from "@/components/CyberpunkCanvas";
-import Earth3DSection from "@/components/Earth3DSection";
-import MiniGame from "@/components/MiniGame";
-import Contact from "@/components/Contact";
-import GalaxyStory from "@/components/GalaxyStory";
-import CasinoSection from "@/components/CasinoSection";
-import ObeliscoSection from "@/components/ObeliscoSection";
 import Highlighted from '@/components/highlighted';
 
 export default function Home() {
@@ -26,14 +18,6 @@ export default function Home() {
 			<Highlighted />
 			<Explorar />
 			<TarjetasHoySemanaFindeBadge />
-			<Testimonials />
-			<CyberpunkCanvas />
-			<Earth3DSection />
-			<MiniGame />
-			<Contact />
-			<GalaxyStory />
-			<CasinoSection />
-			<ObeliscoSection />
 		</Box>
 	);
 }
