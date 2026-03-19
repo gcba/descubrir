@@ -71,30 +71,26 @@ export default function EventosChakra() {
         >
           {/* ITEM 1 */}
           <Box width="180px" fontFamily="Montserrat" fontSize="18px">
-            <Text fontSize="lg" fontWeight="bold" color="white">
+            <Text fontSize="28px" fontWeight="bold" color="white">
               Hoy
             </Text>
-            <Text color="white">Descripción de los eventos de hoy </Text>
-            <Box mt={2} height="2px" bg="white" width="191px" />
+            <Box mt={2} height="2px" bg="orangered" width="100%" />
           </Box>
 
           {/* ITEM 2 */}
           <Box width="180px" fontFamily="Montserrat" fontSize="18px">
-            <Text fontSize="lg" fontWeight="bold" color="white">
+            <Text fontSize="28px" fontWeight="bold" color="white">
               Esta semana
             </Text>
-            <Text color="white">
-              Descripción de los eventos de esta semana{" "}
-            </Text>
+
             <Box mt={2} height="2px" bg="white" width="191px" />
           </Box>
 
           {/* ITEM 3 */}
           <Box width="180px" fontFamily="Montserrat" fontSize="18px">
-            <Text fontSize="lg" fontWeight="bold" color="white">
+            <Text fontSize="28px" fontWeight="bold" color="white">
               Este finde
             </Text>
-            <Text color="white">Descripción de los eventos de este finde </Text>
             <Box mt={2} height="2px" bg="white" width="191px" />
           </Box>
         </Grid>
@@ -115,7 +111,14 @@ export default function EventosChakra() {
             { title: "Evento 2", img: "/imgs/event2.jpg" },
             { title: "Evento 3", img: "/imgs/event3.jpg" },
           ].map((evento, index) => (
-            <Box key={index} w="348px" maxW="348px" h="462px" flexShrink={0}>
+            <Box
+              key={index}
+              w="348px"
+              maxW="348px"
+              minH="462px"
+              // maxH="524px"
+              flexShrink={0}
+            >
               <Stack
                 w="100%"
                 h="100%"
@@ -123,7 +126,13 @@ export default function EventosChakra() {
                 borderRadius="16px"
                 overflow="hidden"
               >
-                <Image src={evento.img} w="100%" h="327px" objectFit="cover" />
+                <Image
+                  src={evento.img}
+                  w="100%"
+                  h="327px"
+                  minH="327px"
+                  objectFit="cover"
+                />
 
                 <Stack p="14px 24px 32px 24px">
                   <Text
@@ -131,13 +140,20 @@ export default function EventosChakra() {
                     color="white"
                     fontWeight="500"
                     mb="14px"
+                    lineClamp={2}
                   >
+                    {evento.title}
+                    {evento.title}
                     {evento.title}
                   </Text>
 
-                  <Text fontSize="sm" color="white">
+                  <Text fontSize="sm" color="white" lineClamp={4}>
                     Del 11 al 16 de febrero, Buenos Aires se convirtió en el
-                    epicentro de la música.
+                    epicentro de la música. Del 11 al 16 de febrero, Buenos
+                    Aires se convirtió en el epicentro de la música. Del 11 al
+                    16 de febrero, Buenos Aires se convirtió en el epicentro de
+                    la música. Del 11 al 16 de febrero, Buenos Aires se
+                    convirtió en el epicentro de la música.
                   </Text>
                 </Stack>
               </Stack>
@@ -160,6 +176,7 @@ export default function EventosChakra() {
             {/*Lucide no tiene íconos rellenos*/}
           </Link>
         </Box>
+      {/* Contenedor para alinear las tarjetas y el enlace */}
       </Box>
     </Box>
   );
