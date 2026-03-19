@@ -1,9 +1,10 @@
 'use client';
 
-import { Box, Container, Flex, Image, Heading, Text, Button } from '@chakra-ui/react';
+import { Box, Container, Flex, Image, Heading, Text } from '@chakra-ui/react';
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Button from '@/components/button';
 import summer1 from '@/assets/images/summer/1.jpg';
 import summer2 from '@/assets/images/summer/2.jpg';
 import summer3 from '@/assets/images/summer/3.jpg';
@@ -12,19 +13,18 @@ import heart from '@/assets/images/icons/heart.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SummerImage = ({ src, small }: { src: string, small?: boolean }) => {
-	return (
-		<Image
-			src={src}
-			alt="summer"
-			maxH="200px"
-			maxW={small ? "150px" : "300px"}
-			rounded="16px"
-			objectFit="cover"
-			objectPosition="center"
-		/>
-	)
-}
+const SummerImage = ({ src, small }: { src: string, small?: boolean }) => (
+	<Image
+		src={src}
+		alt="summer"
+		maxH={{ base: "auto", md: "200px" }}
+		maxW={small ? "30%" : "70%"}
+		rounded="16px"
+		objectFit="cover"
+		objectPosition="center"
+		overflow="hidden"
+	/>
+);
 
 export default function Summer() {
 	const sectionRef = useRef<HTMLDivElement>(null);
@@ -82,27 +82,44 @@ export default function Summer() {
 			ref={sectionRef}
 		>
 			<Container maxW="1108px" margin="0 auto" padding={0}>
-				<Flex gap="96px">
-					<Flex direction="column" gap="16px" w="full" maxW="569px" ref={imagesRef}>
-						<Flex gap="16px" justify="end">
+				<Flex
+					direction={{ mdDown: "column" }}
+					gap={{ base: "32px", md: "96px" }}
+					padding={{ mdDown: "48px 16px" }}
+				>
+					{/* Images */}
+					<Flex
+						ref={imagesRef}
+						direction="column"
+						gap={{ base: "8px", md: "16px" }}
+						w="full"
+						maxW={{ base: "full", md: "569px" }}
+					>
+						<Flex gap={{ base: "8px", md: "16px" }} justify="end">
 							<SummerImage src={summer1.src} small />
 							<SummerImage src={summer2.src} />
 						</Flex>
-						<Flex gap="16px" justify="start">
+						<Flex gap={{ base: "8px", md: "16px" }} justify="start">
 							<SummerImage src={summer3.src} />
 							<SummerImage src={summer4.src} small />
 						</Flex>
 					</Flex>
 
-					<Flex direction="column" gap="24px" align="start" ref={summaryRef}>
+					{/* Summary content */}
+					<Flex
+						ref={summaryRef}
+						direction="column"
+						gap={{ base: "16px", md: "24px" }}
+						align="start"
+					>
 						<Image ref={heartRef} src={heart.src} alt="heart" width="55px" />
 						<Heading maxW="300px" size="5xl" lineHeight="48px">
 							<span style={{ color: "#CB5F25" }}>Verano</span> en Buenos Aires
 						</Heading>
 						<Text fontSize="18px">Afters al aire libre, festivales, y shows en parques, plazas y anfiteatros. Cada semana los barrios presentaron programación.</Text>
 
-						<Box paddingTop="40px">
-							<Button variant="outline" borderColor="white" rounded="3xl" color="white">
+						<Box paddingTop={{ base: "32px", md: "40px" }}>
+							<Button>
 								Mas Informacion
 							</Button>
 						</Box>
