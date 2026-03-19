@@ -6,6 +6,7 @@ export default function Button({ children, ...rest }: { children: React.ReactNod
 			colorPalette="orange"
 			rounded="3xl"
 			color="white"
+			fontWeight="bold"
 			{...rest}
 		>
 			{children}

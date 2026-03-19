@@ -71,7 +71,7 @@ export default function Hero() {
 						<Heading display={{ mdDown: 'none' }} size="lg">Agenda</Heading>
 						<Heading display={{ mdDown: 'none' }} size="lg">Mapa</Heading>
 						<Heading display={{ mdDown: 'none' }} size="lg">Pascuas en BA</Heading>
-						<Button display={{ mdDown: 'none' }} margin="0 24px 0 90px" fontWeight="bold">
+						<Button display={{ mdDown: 'none' }} margin="0 24px 0 90px">
 							Ingresar
 						</Button>
 
